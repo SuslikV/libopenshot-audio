@@ -473,6 +473,7 @@ public:
        #if JUCE_WINDOWS && ! JUCE_MINGW
         return _atoi64 (data);
        #else
+        /* return atoll (data); */
         return atoll (data);
        #endif
     }
