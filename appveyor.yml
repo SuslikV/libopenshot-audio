@@ -9,7 +9,7 @@ version: "{build}"
 branches:
   # whitelist
   only:
-    - patch-1
+    - what-you-have-missed-so-far
   # blacklisted
   except:
     - /.*/    # exclude all branches but whitelisted
@@ -56,6 +56,6 @@ build_script:
 # scripts to run after build (working directory and environment changes are persisted from the previous steps)
 after_build:
   - cmd: '%APPVEYOR_BUILD_FOLDER%\CI\pack-win-av.cmd'
-  - ps: Push-AppveyorArtifact "$Env:OpenShotFilesPath\libopenshot-audio\libopenshot-audio-win-$Env:PLATFORM.7z" -FileName "libopenshot-audio-$(git --git-dir=$Env:APPVEYOR_BUILD_FOLDER\.git describe --always --abbrev=8)-win-$Env:PLATFORM.7z"
+  - ps: Push-AppveyorArtifact "$Env:OpenShotFilesPath\libopenshot-audio\libopenshot-audio-win-$Env:PLATFORM.7z" -FileName "libopenshot-audio-WYH-$(git --git-dir=$Env:APPVEYOR_BUILD_FOLDER\.git describe --always --abbrev=8)-win-$Env:PLATFORM.7z"
 
 test: off
